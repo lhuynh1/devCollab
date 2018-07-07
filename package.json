@@ -1,0 +1,27 @@
+{
+  "name": "devCollab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lhuynh1/devCollab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lhuynh1/devCollab/issues"
+  },
+  "homepage": "https://github.com/lhuynh1/devCollab#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "if-env": "^1.0.4",
+    "mongoose": "^5.2.1"
+  }
+}
