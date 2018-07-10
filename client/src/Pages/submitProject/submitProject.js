@@ -1,6 +1,6 @@
 import React from "react";
 
-class Projects extends Component {
+class Project extends Component {
     state = {
         projectTitle: "",
         projectDescription: "",
@@ -36,4 +36,4 @@ class Projects extends Component {
 
 
 
-export default Projects;
+export default Project;
