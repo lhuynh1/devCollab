@@ -1,20 +1,33 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react";
+import React, {Component} from "react";
 import './App.css';
-import submitProject from "./Pages/submitProject";
+import FindProjectForm from "./pages/findProjectForm/findProjectForm";
+
+class App extends Component {
+  render() {
+    return(
+      <div className="container">
+        <div className="columns">
+          <div className="col-md-9 centered">
+          <FindProjectForm/>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
 
 /* class App extends Component {
 
 } */
 
-const App = () => (
+/* const App = () => (
   <Router>
     <div>
       <Switch>
-        <Route exact path="/" component={submitProject}/>
+        <Route exact path="/" component={findProjectForm}/>
       </Switch>
     </div> 
   </Router> 
-);
+); */
 
 export default App;
