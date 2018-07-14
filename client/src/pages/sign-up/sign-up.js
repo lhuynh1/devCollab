@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Card from '../../components/card/card';
+import Navbar from '../../components/navbar/navbar';
 // wrapper for background
 // import navbar
 // import footer
@@ -52,6 +53,7 @@ class Signup extends Component {
             // wrapper for background
             // nav bar
             // footer
+            <Navbar> 
             <Card>
                 <div className="panel-heading"><h1>Create an account!</h1></div>
                 {(this.state.invalidsignin) ? 
@@ -77,12 +79,13 @@ class Signup extends Component {
                         className="input"
                         placeholder="password"
                         onChange={this.userInput} />
-
+                    <br/>
                     <button className="btn btn-info" onClick={this.userData}>Sign up</button>
                     <p> Aready have an account?</p>
                     <Link to='/signin'><p>Sign in</p></Link>
                 </form>
             </Card>
+        </Navbar>
         )
     }
   

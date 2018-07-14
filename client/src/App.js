@@ -32,7 +32,7 @@ const App = (props) => (
   <div className="router-section">
     <Router>
       <Switch>
-        <PublicRoute exact path="/" component={homePage}/>
+        {/* <PublicRoute exact path="/" component={homePage}/> */}
         <PublicRoute exact path="/signup" component={Signup}/>
         <PublicRoute exact path="/signin" component={Signin}/>
         {/* private routes will be project submit & project find page */}
