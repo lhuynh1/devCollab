@@ -1,21 +1,44 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 import './App.css';
+import Signin from './pages/sign-in/sign-in';
+import Signup from './pages/sign-up/sign-up';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+const isAuthenticated = JSON.parse(sessionStorage.getItem('isAuthenticated'));
+
+const PrivateRoute = ({component: Component, ...rest}) => {
+  return (
+      <Route
+          exact
+          {...rest}
+          render={(props) => (isAuthenticated)
+              ? <Component {...props} />
+              : <Redirect to={{pathname: '/signin'}}/>}
+      />
+  )
+};
+
+const PublicRoute = ({component: Component, ...rest}) => {
+  return (
+      <Route
+          exact
+          {...rest}
+          render={(props) => (!isAuthenticated) ? <Component {...props} /> : <Redirect to={{pathname: '/user'}} /> }
+      />
+  )
+};
+
+const App = (props) => (
+  <div className="router-section">
+    <Router>
+      <Switch>
+        {/* <PublicRoute exact path="/" component={homePage}/> */}
+        <PublicRoute exact path="/signup" component={Signup}/>
+        <PublicRoute exact path="/signin" component={Signin}/>
+        {/* private routes will be project submit & project find page */}
+      </Switch>
+    </Router>
+  </div>
+)
 
 export default App;
