@@ -4,6 +4,8 @@ import './App.css';
 import Signin from './pages/sign-in/sign-in';
 import Signup from './pages/sign-up/sign-up';
 import FindProjectForm from "./pages/findProjectForm/findProjectForm";
+import Navbar from "./components/navbar/navbar";
+import Homepage from "./pages/home-page/home-page";
 
 const isAuthenticated = JSON.parse(sessionStorage.getItem('isAuthenticated'));
 
@@ -30,17 +32,20 @@ const PublicRoute = ({component: Component, ...rest}) => {
 };
 
 const App = (props) => (
-  <div className="router-section">
-    <Router>
+  
+  <Router> 
+    <div>
+      <Navbar />
       <Switch>
-        {/* <PublicRoute exact path="/" component={homePage}/> */}
+        <PublicRoute exact path="/" component={Homepage}/>
         <PublicRoute exact path="/signup" component={Signup}/>
         <PublicRoute exact path="/signin" component={Signin}/>
         <PrivateRoute exact path="/findproject" component={FindProjectForm} />
         {/* private routes will be project submit & project find page */}
       </Switch>
-    </Router>
-  </div>
+      </div>
+  </Router>
+ 
 )
 
 

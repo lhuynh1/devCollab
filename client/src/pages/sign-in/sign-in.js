@@ -55,7 +55,7 @@ class Signin extends Component {
  render() {
      return (
          <Card>
-             <div className="panel-heading"><h1>Sign in</h1></div>
+             <div className="panel-heading" id="signin-title"><h1>Sign in</h1></div>
              {(this.state.invalidlogin) ?
              <p className="err">Incorrect username or password.</p> :null}
 
@@ -66,17 +66,17 @@ class Signin extends Component {
                  className="input"
                  placeholder="username"
                  onChange={this.userInput} />
-
+                <br/>
                  <input
                  type="text"
                  name="password"
                  className="input"
                  placeholder="password"
                  onChange={this.userInput} />
-
-                 <button className="btn btn-info" onClick={this.userData}>Sign in</button>
+                <br/>
+                 <button className="btn btn-xl text-uppercase" onClick={this.userData}>Sign in</button>
                  <p>Don't have an account yet? What are you waiting for?</p>
-                 <Link to='/signup'><p>Sign up</p></Link>
+                 <Link to='/signup'><p id="signup">Sign up</p></Link>
              </form>
          </Card>
      )
