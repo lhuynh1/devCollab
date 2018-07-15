@@ -12,8 +12,8 @@ class Homepage extends Component {
                 <div className="intro-text">
                   <div className="intro-lead-in">Welcome to devCollab!</div>
                   <div className="intro-heading text-uppercase">Find your next </div>
-                  <button className="btn btn-xl text-uppercase text-center">Submit a project</button>
-                  <button className="btn btn-xl text-uppercase text-center">Find a project</button>
+                  <button className="btn btn-xl text-uppercase text-center" href="/submitproject">Submit a project</button>
+                  <button className="btn btn-xl text-uppercase text-center" href="findproject">Find a project</button>
                 </div>
               </div>
             </header>
@@ -24,32 +24,23 @@ class Homepage extends Component {
               <div className="container">
                 <div className="row">
                   <div className="col-lg-12 text-center">
-                    <h2 className="section-heading text-uppercase">Services</h2>
+                    <h2 className="section-heading text-uppercase">About us</h2>
                     <h3 className="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                   </div>
                 </div>
                 <div className="row text-center">
                   <div className="col-md-4">
-                    <span className="fa-stack fa-4x">
-                      <i className="fa fa-circle fa-stack-2x text-primary"></i>
-                      <i className="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 className="service-heading">E-Commerce</h4>
+                     <img className="rounded-circle img-fluid" src={require('./img/collab.jpeg')} alt=""/>
+                    <h4 className="service-heading">Collaboration</h4>
                     <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                   </div>
                   <div className="col-md-4">
-                    <span className="fa-stack fa-4x">
-                      <i className="fa fa-circle fa-stack-2x text-primary"></i>
-                      <i className="fa fa-laptop fa-stack-1x fa-inverse"></i>
-                    </span>
+                  <img className="rounded-circle img-fluid" src={require('./img/innovation.jpeg')} alt=""/>
                     <h4 className="service-heading">Responsive Design</h4>
                     <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                   </div>
                   <div className="col-md-4">
-                    <span className="fa-stack fa-4x">
-                      <i className="fa fa-circle fa-stack-2x text-primary"></i>
-                      <i className="fa fa-lock fa-stack-1x fa-inverse"></i>
-                    </span>
+                  <img className="rounded-circle img-fluid" src={require('./img/code.jpeg')} alt=""/>
                     <h4 className="service-heading">Web Security</h4>
                     <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                   </div>
