@@ -58,11 +58,7 @@ body {
     font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 700;
   }
-  
-  .btn-xl {
-    font-size: 18px;
-    padding: 20px 40px;
-  }
+ 
   
   .btn-primary {
     background-color: #fed136;
@@ -135,7 +131,7 @@ header.masthead {
 
   .btn {
     margin: 10pt;
-    width: 135pt;
+    width: 140pt;
   }
 
   .rounded-circle {
@@ -145,6 +141,7 @@ header.masthead {
   .img-fluid {
       max-width: 100%;
       border-style: none;
+      margin-bottom: 5pt;
   }
   
   @media (min-width: 768px) {
@@ -166,4 +163,48 @@ header.masthead {
       margin-bottom: 50px;
       font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
+  }
+
+  .team-member {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  
+  .team-member img {
+    width: 225px;
+    height: 225px;
+    border: 7px solid #fff;
+  }
+  
+  .team-member h4 {
+    margin-top: 25px;
+    margin-bottom: 0;
+    text-transform: none;
+  }
+  
+  .team-member p {
+    margin-top: 0;
+  }
+
+  ul.social-buttons {
+    margin-bottom: 0;
+  }
+  
+  ul.social-buttons li a {
+    font-size: 20px;
+    line-height: 40px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    color: white;
+    border-radius: 100%;
+    outline: none;
+    background-color: #212529;
+  }
+  
+  ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
+    background-color: #fed136;
   }

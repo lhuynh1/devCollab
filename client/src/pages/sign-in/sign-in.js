@@ -55,7 +55,7 @@ class Signin extends Component {
  render() {
      return (
          <Card>
-             <div className="panel-heading" id="signin-title"><h1>Sign in</h1></div>
+             <div className="panel-heading"><h1 id="signin-title">Sign in</h1></div>
              {(this.state.invalidlogin) ?
              <p className="err">Incorrect username or password.</p> :null}
 

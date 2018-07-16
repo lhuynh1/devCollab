@@ -6,6 +6,7 @@ import Signup from './pages/sign-up/sign-up';
 import FindProjectForm from "./pages/findProjectForm/findProjectForm";
 import Navbar from "./components/navbar/navbar";
 import Homepage from "./pages/home-page/home-page";
+import Footer from "./components/footer/footer";
 
 const isAuthenticated = JSON.parse(sessionStorage.getItem('isAuthenticated'));
 
@@ -43,6 +44,7 @@ const App = (props) => (
         <PrivateRoute exact path="/findproject" component={FindProjectForm} />
         {/* private routes will be project submit & project find page */}
       </Switch>
+      <Footer />
       </div>
   </Router>
  
