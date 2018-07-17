@@ -8,6 +8,7 @@ import Navbar from "./components/navbar/navbar";
 import Homepage from "./pages/home-page/home-page";
 import Footer from "./components/footer/footer";
 
+
 const isAuthenticated = JSON.parse(sessionStorage.getItem('isAuthenticated'));
 
 const PrivateRoute = ({component: Component, ...rest}) => {
@@ -41,7 +42,7 @@ const App = (props) => (
         <PublicRoute exact path="/" component={Homepage}/>
         <PublicRoute exact path="/signup" component={Signup}/>
         <PublicRoute exact path="/signin" component={Signin}/>
-        <PrivateRoute exact path="/findproject" component={FindProjectForm} />
+        <PublicRoute exact path="/findproject" component={FindProjectForm} />
         {/* private routes will be project submit & project find page */}
       </Switch>
       <Footer />
