@@ -1,0 +1,31 @@
+body {
+    align-content: center;
+    margin: 0 auto;
+    padding: 0;
+}
+
+form {
+    border: 5px solid #bbbbbb;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    background-color: white;
+    margin: auto;
+}
+
+.form-label {
+    font-size: auto;
+}
+
+.h3, h3 {
+    font-size: 50px;
+}
+
+form .Checkbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
