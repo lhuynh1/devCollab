@@ -33,17 +33,17 @@ class Homepage extends Component {
                   <div className="col-md-4">
                      <img className="rounded-circle img-fluid" src={require('./img/collab.jpeg')} alt=""/>
                     <h4 className="service-heading">Collaboration</h4>
-                    <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <p className="text-muted">We are focused on creating a place for developers of all experience levels to come and discover neat open source projects to contribute to. Ever had a really cool idea for an app but maybe your frontend framework skills weren't too sharp? Submit that idea and see who'd be willing to collaborate with you on it!</p>
                   </div>
                   <div className="col-md-4">
                   <img className="rounded-circle img-fluid" src={require('./img/innovation.jpeg')} alt=""/>
                     <h4 className="service-heading">Innovation</h4>
-                    <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <p className="text-muted">Come here to browse around at the many one of a kind project proposals or cool ideas. If something speaks to you, reach out to the developer leading that project and see if you'd be a fit!</p>
                   </div>
                   <div className="col-md-4">
                   <img className="rounded-circle img-fluid" src={require('./img/code.jpeg')} alt=""/>
                     <h4 className="service-heading">Community</h4>
-                    <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <p className="text-muted">Besides finding unique side projects, we want to cultivate a supportive community of developers. 2 sets of eyes for debugging is ALWAYS better than 1!</p>
                   </div>
                 </div>
               </div>
@@ -67,7 +67,7 @@ class Homepage extends Component {
                     <p class="text-muted">Full stack developer</p>
                     <ul class="list-inline social-buttons">
                         <li class="list-inline-item">
-                        <a href="#">
+                        <a href="https://github.com/lhuynh1" target="blank">
                             <i class="fa fa-github"></i>
                         </a>
                         </li>
@@ -77,7 +77,7 @@ class Homepage extends Component {
                         </a>
                         </li>
                         <li class="list-inline-item">
-                        <a href="#">
+                        <a href="https://www.linkedin.com/in/lhuynh1/" target="blank">
                             <i class="fa fa-linkedin"></i>
                         </a>
                         </li>
@@ -91,7 +91,7 @@ class Homepage extends Component {
                     <p class="text-muted">Full stack developer</p>
                     <ul class="list-inline social-buttons">
                         <li class="list-inline-item">
-                        <a href="#">
+                        <a href="https://github.com/msdibble" target="blank">
                             <i class="fa fa-github"></i>
                         </a>
                         </li>
@@ -101,7 +101,7 @@ class Homepage extends Component {
                         </a>
                         </li>
                         <li class="list-inline-item">
-                        <a href="#">
+                        <a href="https://www.linkedin.com/in/michael-dibble-5b020ba1/" target="blank">
                             <i class="fa fa-linkedin"></i>
                         </a>
                         </li>
@@ -111,9 +111,9 @@ class Homepage extends Component {
                 <div class="col-sm-4">
                     <div class="team-member">
                     <img class="mx-auto rounded-circle" src="" alt=""/>
-                    <h4>Diana Pertersen</h4>
-                    <p class="text-muted">Full stack developer</p>
-                    <ul class="list-inline social-buttons">
+                    {/* <h4>Diana Pertersen</h4>
+                    <p class="text-muted">Full stack developer</p> */}
+                    {/* <ul class="list-inline social-buttons">
                         <li class="list-inline-item">
                         <a href="#">
                             <i class="fa fa-github"></i>
@@ -129,7 +129,7 @@ class Homepage extends Component {
                             <i class="fa fa-linkedin"></i>
                         </a>
                         </li>
-                    </ul>
+                    </ul> */}
                     </div>
                 </div>
             </div>
