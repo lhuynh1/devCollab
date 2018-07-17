@@ -53,7 +53,7 @@ apirouter.post("/signin", (req, res) => {
         .then((user) => {
             if (bcrypt.compareSync(password, user.password)) {
                 const token = getJWT(user._id, user.username);
-                res.cookie("toekn", token);
+                res.cookie("token", token);
                 res.status(200).json({msg: "Successfully signed in"});
             } else {
                 res.status(400).json({error: "Passwords do not match"});

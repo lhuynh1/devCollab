@@ -2,14 +2,15 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Card from '../../components/card/card';
-import Navbar from '../../components/navbar/navbar';
+import './sign-up.css';
+// import Navbar from '../../components/navbar/navbar';
 // wrapper for background
 // import navbar
 // import footer
 
 class Signup extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {};
     }
 
@@ -50,12 +51,9 @@ class Signup extends Component {
     // render components
     render() {
         return (
-            // wrapper for background
-            // nav bar
-            // footer
-            <Navbar> 
+
             <Card>
-                <div className="panel-heading"><h1>Create an account!</h1></div>
+                <div className="panel-heading"><h1 id="create">Create an account!</h1></div>
                 {(this.state.invalidsignin) ? 
                 <p className="err"> Sorry, this username is taken. </p> :null}
 
@@ -72,7 +70,7 @@ class Signup extends Component {
                         className="input"
                         placeholder="username"
                         onChange={this.userInput} />
-                    
+                    <br/>
                     <input
                         type="password"
                         name="password"
@@ -80,12 +78,12 @@ class Signup extends Component {
                         placeholder="password"
                         onChange={this.userInput} />
                     <br/>
-                    <button className="btn btn-info" onClick={this.userData}>Sign up</button>
+                    <button className="btn btn-xl text-uppercase" onClick={this.userData}>Sign up</button>
                     <p> Aready have an account?</p>
-                    <Link to='/signin'><p>Sign in</p></Link>
+                    <Link to='/signin'><p id="signup">Sign in</p></Link>
                 </form>
             </Card>
-        </Navbar>
+        
         )
     }
   

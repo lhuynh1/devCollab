@@ -1,0 +1,27 @@
+form {
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#signin-title {
+    font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial, cursive;
+    margin: 10pt;
+    margin-top: 40pt;
+}
+
+.input {
+    margin: 5pt;
+}
+
+.btn {
+    margin-top: 10pt;
+    margin-bottom: 15pt;
+    width: 100pt;
+    background-color: #fed136;
+    font-weight: bold;
+    color: #212529e1;
+}
+
+#signup {
+    color: #fed136;
+    margin-bottom: 40pt
+}
