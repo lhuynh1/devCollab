@@ -4,6 +4,7 @@ import './App.css';
 import Signin from './pages/sign-in/sign-in';
 import Signup from './pages/sign-up/sign-up';
 import FindProjectForm from "./pages/findProjectForm/findProjectForm";
+import SubmitProjectForm from "./pages/submitProjectForm/submitProjectForm.js";
 import Navbar from "./components/navbar/navbar";
 import Homepage from "./pages/home-page/home-page";
 import Footer from "./components/footer/footer";
@@ -42,7 +43,8 @@ const App = (props) => (
         <PublicRoute exact path="/" component={Homepage}/>
         <PublicRoute exact path="/signup" component={Signup}/>
         <PublicRoute exact path="/signin" component={Signin}/>
-        <PublicRoute exact path="/findproject" component={FindProjectForm} />
+        <PrivateRoute exact path="/findproject" component={FindProjectForm} />
+        <PrivateRoute exact path="/submitproject" component={SubmitProjectForm} />
         {/* private routes will be project submit & project find page */}
       </Switch>
       <Footer />

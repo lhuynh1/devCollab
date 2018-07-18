@@ -13,7 +13,7 @@ const inputArea = (props) => (
     </div>
 );
 
-inputArea.propTypes = {
+/* inputArea.propTypes = {
     title: React.PropTypes.string.isRequired,
     rows: Race.PropTypes.number.isRequired,
     name: React.PropTypes.string.isRequired,
@@ -21,6 +21,6 @@ inputArea.propTypes = {
     resize: React.PropTypes.bool,
     placeholder: React.PropTypes.string,
     controlFunc: React.PropTypes.func.isRequired
-};
+}; */
 
 export default inputArea;
