@@ -3,9 +3,6 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 import Card from '../../components/card/card';
 import './sign-in.css';
-// wrawpper
-// nav
-// footer
 
 class Signin extends Component {
     constructor(props) {
@@ -68,7 +65,7 @@ class Signin extends Component {
                  onChange={this.userInput} />
                 <br/>
                  <input
-                 type="text"
+                 type="password"
                  name="password"
                  className="input"
                  placeholder="password"

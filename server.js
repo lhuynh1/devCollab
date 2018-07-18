@@ -19,17 +19,16 @@ app.use('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
-mongoose.Promise = Promise;
+// mongoose.Promise = Promise;
+mongoose.Promise = require('bluebird');
 
 if (process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI);
+    console.log(MONGODB_URI);
 }
 else {
-    mongoose.connect("mongodb://localhost/devCollab", {
-        useMongoClient: true
-    });
+    mongoose.connect("mongodb://localhost:27017/devCollab", { useNewUrlParser: true });
 }
-
 
 app.listen(PORT, function() {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);

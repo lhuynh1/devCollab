@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Card from '../../components/card/card';
 import './sign-up.css';
-// import Navbar from '../../components/navbar/navbar';
-// wrapper for background
-// import navbar
-// import footer
 
 class Signup extends Component {
     constructor() {
@@ -29,7 +25,8 @@ class Signup extends Component {
 
         const checkusername = /^[A-Za-z0-9_]{3,10}$/.test(this.state.username);
         const checkpassword = /^[A-Za-z0-9!@#$%^&*_]{6,10}$/.test(this.state.password);
-
+        console.log(checkusername);
+        console.log(checkpassword);
         if (checkusername && checkpassword) {
             axios.post('/api/signup', this.state)
                 .then((data) => {

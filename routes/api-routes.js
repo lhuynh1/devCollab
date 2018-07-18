@@ -17,22 +17,32 @@ const getJWT = (_id, username) => {
 
 // signup
 apirouter.post("/signup", (req, res) => {
-    const {username, password} = req.body;
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.genSalt(password, salt);
+    console.log(req.body);
+    let {username, password} = req.body;
+    // const salt = bcrypt.genSaltSync(10);
+    // const hash = bcrypt.genSalt(password, salt);
 
+    bcrypt.hash(password, 10, function(err, hash) {
+        console.log(hash);
+        password = hash;
+      });
+
+    console.log(username);
     db.User.findOne({username})
-        .then((user) => {
+        .then((user) => {   
+            console.log(user);
             if(user) {
                 return res.status(409).json({error: "Username already exists"});
             }
 
             const new_user = new db.User({
                 username,
-                password: hash
+                password
             });
             new_user.save((err, user) => {
+                console.log(user)
                 if (err) {
+                    console.log(err);
                     return err;
                 }
 
@@ -41,6 +51,7 @@ apirouter.post("/signup", (req, res) => {
                 res.status(200).json({msg: "New user registered"});
             });
         }).catch((err) => {
+            console.log(err);
             res.status(400).json({err: "Connection error"});
         });
 });
