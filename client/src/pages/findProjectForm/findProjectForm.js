@@ -1,5 +1,6 @@
+import "./findProjectForm.css";
 import React, {Component} from "react";
-import Checkbox from "../../components/Checkbox";
+import Checkbox from "../../components/checkbox/checkbox";
 import findProjectjson from "../../newProjectjson/findProject.json";
 /* import { set } from "mongoose"; */
 
@@ -15,6 +16,9 @@ class findProjectForm extends Component {
         // this.handleSkillsSelection=this.handleSkillsSelection.bind(this);
     }
 
+handleFormSubmit() {
+    /* Submit logic goes here */
+}
 handleInterestsSelection = (e) => {
     const newSelection = e.target.value;
     let newSelectionArray;
@@ -61,6 +65,10 @@ render() {
                 options = {findProjectjson.Skills}
                 selectedOptions = {this.state.selectedSkills}
             />
+            <input
+                type="submit"
+                className="btn btn-primary"
+                value="Submit"/>
         </form>
 
     )
