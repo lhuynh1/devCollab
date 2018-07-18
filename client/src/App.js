@@ -43,8 +43,8 @@ const App = (props) => (
         <PublicRoute exact path="/" component={Homepage}/>
         <PublicRoute exact path="/signup" component={Signup}/>
         <PublicRoute exact path="/signin" component={Signin}/>
-        <PrivateRoute exact path="/findproject" component={FindProjectForm} />
-        <PrivateRoute exact path="/submitproject" component={SubmitProjectForm} />
+        <PublicRoute exact path="/findproject" component={FindProjectForm} />
+        <PublicRoute exact path="/submitproject" component={SubmitProjectForm} />
         {/* private routes will be project submit & project find page */}
       </Switch>
       <Footer />
