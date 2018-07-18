@@ -47,7 +47,7 @@ handleSkillsSelection = (e) => {
 
 render() {
     return (
-        <form className="container">
+        <form className="container" id="findProject">
             <h3>Find a Project Form</h3>
             <Checkbox
                 title = {'Select your interest(s)'}

@@ -4,7 +4,7 @@ body {
     padding: 0;
 }
 
-form {
+#findProject {
     border: 5px solid #bbbbbb;
     font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     text-align: center;
