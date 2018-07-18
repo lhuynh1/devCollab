@@ -1,7 +1,6 @@
 import "./submitProjectForm.css";
 import React, {Component} from "react";
-import InputArea from "../submitProjectForm/submitProjectForm.css";
-import inputArea from "../../components/inputArea/inputArea";
+import InputArea from "../../components/inputArea/inputArea";
 
 class submitProjectForm extends Component {
     constructor(props) {
@@ -47,39 +46,41 @@ render() {
     return (
         <form className="container" onSubmit={this.handleFormSubmit}>
             <h3>Submit a Project Form</h3>
-            <InputArea
-                inputType={'text'}
-                title={'Project Name'}
-                name={'name'}
-                controlFunc={this.handleProjectName}
-                content={this.projectName}
-                placeholder = {'Project name here...'} />
-            <inputArea 
-                inputType={'text'}
-                title={'Project Descriptions'}
-                name={'name'}
-                controlFunc={this.handleProjectDescription}
-                content={this.projectDescription}
-                placeholder={'Project description here...'} />
-            <inputArea
-                inputType={'text'}
-                title={'Languages and Skills required for Project'}
-                name={'name'}
-                controlFunc={this.handleProjectLanguages}
-                content={this.projectLanguages}
-                placeholder={'Langauges and skills here...'} />
-            <inputArea
-                inputArea={'text'}
-                title={'Link to Project'}
-                name={'name'}
-                controlFunc={this.handleProjectLink}
-                content={this.projectLink}
-                placeholder={'Project link here...'} />
-            <input
-                type="submit"
-                className="btn btn-primary float-right"
-                value="Submit"/>
+                <h2>Project Name</h2>
+                    <InputArea
+                        inputType={'text'}
+                        name={'name'}
+                        controlFunc={this.handleProjectName}
+                        content={this.projectName}
+                        placeholder = {'Project name here...'} />
+                <h2>Project Description</h2>
+                    <InputArea 
+                        inputType={'text'}
+                        name={'name'}
+                        controlFunc={this.handleProjectDescription}
+                        content={this.projectDescription}
+                        placeholder={'Project description here...'} />
+                <h2>Languages and Skills Required for Project</h2>
+                    <InputArea
+                        inputType={'text'}
+                        name={'name'}
+                        controlFunc={this.handleProjectLanguages}
+                        content={this.projectLanguages}
+                        placeholder={'Langauges and skills here...'} />
+                <h2>Link to Project</h2>
+                    <InputArea
+                        inputType={'text'}
+                        name={'name'}
+                        controlFunc={this.handleProjectLink}
+                        content={this.projectLink}
+                        placeholder={'Project link here...'} />
+                    <input
+                        type="submit"
+                        className="btn btn-primary float-right"
+                        value="Submit"/>
         </form>
     );
 }
 }
+
+export default submitProjectForm;
