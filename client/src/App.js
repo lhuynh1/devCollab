@@ -8,7 +8,7 @@ import SubmitProjectForm from "./pages/submitProjectForm/submitProjectForm.js";
 import Navbar from "./components/navbar/navbar";
 import Homepage from "./pages/home-page/home-page";
 import Footer from "./components/footer/footer";
-
+import Landing from "./pages/landing/landing";
 
 const isAuthenticated = JSON.parse(sessionStorage.getItem('isAuthenticated'));
 
@@ -29,7 +29,7 @@ const PublicRoute = ({component: Component, ...rest}) => {
       <Route
           exact
           {...rest}
-          render={(props) => (!isAuthenticated) ? <Component {...props} /> : <Redirect to={{pathname: '/'}} /> }
+          render={(props) => (!isAuthenticated) ? <Component {...props} /> : <Redirect to={{pathname: '/landing'}} /> }
       />
   )
 };
@@ -45,6 +45,7 @@ const App = (props) => (
         <PublicRoute exact path="/signin" component={Signin}/>
         <PublicRoute exact path="/findproject" component={FindProjectForm} />
         <PublicRoute exact path="/submitproject" component={SubmitProjectForm} />
+        <PrivateRoute exact path="/landing" component={Landing} />
         {/* private routes will be project submit & project find page */}
       </Switch>
       <Footer />
