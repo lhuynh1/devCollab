@@ -6,3 +6,9 @@
     background-color: white;
     margin: auto;
 }
+
+form .Checkbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

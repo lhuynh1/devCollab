@@ -86,33 +86,36 @@ const verifyCookie = (req, res, next) => {
 };
 
 // Submit project to mongo db
-apirouter.post("/submitproject", (req, res) => {
-    const {projectName, projectDescription, projectLanguages, projectLink} = req.body;
-    console.log(req.body);
-    projectName.save()
-    projectDescription.save()
-    projectLanguages.save()
-    projectLink.save()
-        .then(item => {
-            res.send("Information saved to the database");
-            console.log(res.send);
-        })
-        .catch(err => {
-            res.status(400).send("Unable to save to the database");
-            console.log(res.status);
-        })
-});
+// apirouter.post("/submitproject", (req, res) => {
+//     const {projectName, projectDescription, projectLanguages, projectLink} = req.body;
+//     console.log(req.body);
+//     projectName.save()
+//     projectDescription.save()
+//     projectLanguages.save()
+//     projectLink.save()
+//         .then(item => {
+//             res.send("Information saved to the database");
+//             console.log(res.send);
+//         })
+//         .catch(err => {
+//             res.status(400).send("Unable to save to the database");
+//             console.log(res.status);
+//         })
+// });
 // Submit desired project to mongo db
-apirouter.post("/findproject", (req, res) => {
-    const {selectedInterests, selectedSkills} = req.body;
-    console.log(req.body);
-    selectedInterests.save()
-    selectedSkills.save()
-        .then(item => {
-            res.send("Information successfully saved to the database")
-        })
-        .catch(err => {
-            res.send("Unable to save to the database");
-        })
-});
+// apirouter.post("/findproject", (req, res) => {
+//     const {selectedInterests, selectedSkills} = req.body;
+//     db.FindProject.findOne
+//     console.log(req.body);
+//     selectedInterests.save()
+//     selectedSkills.save()
+//         .then(item => {
+//             res.send("Information successfully saved to the database")
+//         })
+//         .catch(err => {
+//             res.send("Unable to save to the database");
+//         })
+// });
+
+apirouter.post
 module.exports = apirouter;

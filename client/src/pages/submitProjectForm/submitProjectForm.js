@@ -27,12 +27,19 @@ handleProjectDescriptionChange(e) {
     this.setState({ projectDescription: e.target.value }, () => console.log('project description', this.state.projectDescription));
 }
 
-handleProjectLanguagesChange(e) {
-    this.setState({ projectLanguages: e.target.value }, () => console.log('project descriptions', this.state.projectLanguages));
-}
-
 handleProjectLinkChange(e) {
     this.setState({ projectLink: e.target.value}, () => console.log('project link', this.state.projectLink));
+}
+
+handleProjectLanguagesChange (e) {
+    const newSelection = e.target.value
+    let newSelectionArray;
+    if(this.state.projectLanguages.indexOf(newSelection) > -1) {
+        newSelectionArray = this.state.projectLanguages.filter(s => s !== newSelection)
+    } else {
+        newSelectionArray = [...this.state.projectLanguages, newSelectionArray ]
+    }
+    this.setState ({ projectLanguages: newSelectionArray }, () => console.log('Project Languages', this.state.projectLanguages));
 }
 
 handleClearForm(e) {
@@ -56,17 +63,6 @@ handleFormSubmit(e) {
     this.handleClearForm();
 }
 
- handleProjectLanguages (e) {
-    const newSelection = e.target.value
-    let newSelectionArray;
-    if(this.state.projectLanguages.indexOf(newSelection) > -1) {
-        newSelectionArray = this.state.projectLanguages.filter(s => s !== newSelection)
-    } else {
-        newSelectionArray = [...this.state.projectLanguages, newSelectionArray ]
-    }
-    this.setState ({ projectLanguages: newSelectionArray }, () => console.log('Project Languages', this.state.projectLanguages));
- }
-
 render() {
     return (
         <form className="container" id="submitProject" onSubmit={this.handleFormSubmit}>
@@ -89,7 +85,7 @@ render() {
                     <Checkbox 
                         setName = {'Languages'}
                         type = {'checkbox'}
-                        controlFunc={this.handleProjectLanguages}
+                        controlFunc={this.handleProjectLanguagesChange}
                         options={findProjectjson.Skills}
                         selectedOptions={this.state.projectLanguages}
                     />

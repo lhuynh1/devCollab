@@ -2,6 +2,7 @@ import "./findProjectForm.css";
 import React, {Component} from "react";
 import Checkbox from "../../components/checkbox/checkbox";
 import findProjectjson from "../../newProjectjson/findProject.json";
+import axios from "axios";
 /* import { set } from "mongoose"; */
 
 
@@ -14,22 +15,14 @@ class findProjectForm extends Component {
         };
     }
 
-handleClearForm(e) {
-    e.preventDefault();
-    this.setState({
-        selectedInterests: [],
-        selectedSkills: []
-    });
-}
-
-handleFormSubmit(e) {
+handleFormSubmit = (e) => {
     e.preventDefault();
     const formPayLoad = {
         selectedInterests: this.state.selectedInterests,
         selectedSkills: this.state.selectedSkills
     };
     console.log('Send this in a POST request', formPayLoad);
-    this.handleClearForm();
+
 }
 handleInterestsSelection = (e) => {
     const newSelection = e.target.value;
