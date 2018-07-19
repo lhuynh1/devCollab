@@ -12,12 +12,24 @@ class findProjectForm extends Component {
             selectedInterests: [],
             selectedSkills: []
         };
-        // this.handleInterestsSelection=this.handleInterestsSelection.bind(this);
-        // this.handleSkillsSelection=this.handleSkillsSelection.bind(this);
     }
 
-handleFormSubmit() {
-    /* Submit logic goes here */
+handleClearForm(e) {
+    e.preventDefault();
+    this.setState({
+        selectedInterests: [],
+        selectedSkills: []
+    });
+}
+
+handleFormSubmit(e) {
+    e.preventDefault();
+    const formPayLoad = {
+        selectedInterests: this.state.selectedInterests,
+        selectedSkills: this.state.selectedSkills
+    };
+    console.log('Send this in a POST request', formPayLoad);
+    this.handleClearForm();
 }
 handleInterestsSelection = (e) => {
     const newSelection = e.target.value;
@@ -28,8 +40,6 @@ handleInterestsSelection = (e) => {
         newSelectionArray = [...this.state.selectedInterests, newSelection];
     }
     this.setState ({ selectedInterests: newSelectionArray }, () => console.log('Interests Selection', this.state.selectedInterests));
-
-    // console.log(selectedInterests);
     }
 
 handleSkillsSelection = (e) => {
@@ -42,12 +52,11 @@ handleSkillsSelection = (e) => {
     }
     this.setState ({ selectedSkills: newSelectionArray }, () => console.log('Skills Selection', this.state.selectedSkills));
 
-    // console.log(selectedSkills);
 }
 
 render() {
     return (
-        <form className="container" id="findProject">
+        <form className="container" id="findProject" onSubmit={this.handleFormSubmit}>
             <h3>Find a Project Form</h3>
             <Checkbox
                 title = {'Select your interest(s)'}
