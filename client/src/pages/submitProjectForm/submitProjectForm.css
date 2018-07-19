@@ -1,0 +1,14 @@
+#submitProject {
+    border: 5px solid #bbbbbb;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    background-color: white;
+    margin: auto;
+}
+
+form .Checkbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
