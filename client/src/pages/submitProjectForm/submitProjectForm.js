@@ -1,6 +1,8 @@
 import "./submitProjectForm.css";
 import React, {Component} from "react";
 import InputArea from "../../components/inputArea/inputArea";
+import Checkbox from "../../components/checkbox/checkbox";
+import findProjectjson from "../../newProjectjson/findProject.json";
 
 class submitProjectForm extends Component {
     constructor(props) {
@@ -11,36 +13,55 @@ class submitProjectForm extends Component {
             projectLanguages: [],
             projectLink: ''
         };
+        this.handleProjectNameChange = this.handleProjectNameChange.bind(this);
+        this.handleProjectDescriptionChange = this.handleProjectDescriptionChange.bind(this);
+        this.handleProjectLanguagesChange = this.handleProjectLanguagesChange.bind(this);
+        this.handleProjectLinkChange = this.handleProjectLinkChange.bind(this);
+    }
+
+handleProjectNameChange(e) {
+    this.setState({ projectName: e.target.value }, () => console.log('project name', this.state.projectName));
+}
+
+handleProjectDescriptionChange(e) {
+    this.setState({ projectDescription: e.target.value }, () => console.log('project description', this.state.projectDescription));
+}
+
+handleProjectLinkChange(e) {
+    this.setState({ projectLink: e.target.value}, () => console.log('project link', this.state.projectLink));
+}
+
+handleProjectLanguagesChange (e) {
+    const newSelection = e.target.value
+    let newSelectionArray;
+    if(this.state.projectLanguages.indexOf(newSelection) > -1) {
+        newSelectionArray = this.state.projectLanguages.filter(s => s !== newSelection)
+    } else {
+        newSelectionArray = [...this.state.projectLanguages, newSelectionArray ]
+    }
+    this.setState ({ projectLanguages: newSelectionArray }, () => console.log('Project Languages', this.state.projectLanguages));
+}
+
+handleClearForm(e) {
+    e.preventDefault();
+        this.setState({
+            selectedInterests: [],
+            selectedSkills: []
+        });
     }
 
 // Handle form submission
 handleFormSubmit(e) {
     e.preventDefault();
-
     const formPayload = {
         projectName: this.state.projectName,
         projectDescription: this.state.projectDescription,
         projectLanguages: this.state.projectLanguages,
         projectLink: this.state.projectLink
     }
+    console.log('Send this in a POST request', formPayload);
+    this.handleClearForm();
 }
-
-/* Handle project name change */
- handleProjectName() {
-
- }
-
- handleProjectDescription () {
-
- }
-
- handleProjectLanguages () {
-
- }
-
- handleProjectLink () {
-
- }
 
 render() {
     return (
@@ -50,23 +71,24 @@ render() {
                     <InputArea
                         inputType={'text'}
                         name={'name'}
-                        controlFunc={this.handleProjectName}
+                        controlFunc={this.handleProjectNameChange}
                         content={this.projectName}
                         placeholder = {'Project name here...'} />
                 <h2>Project Description</h2>
                     <InputArea 
                         inputType={'text'}
                         name={'name'}
-                        controlFunc={this.handleProjectDescription}
+                        controlFunc={this.handleProjectDescriptionChange}
                         content={this.projectDescription}
                         placeholder={'Project description here...'} />
                 <h2>Languages and Skills Required for Project</h2>
-                    <InputArea
-                        inputType={'text'}
-                        name={'name'}
-                        controlFunc={this.handleProjectLanguages}
-                        content={this.projectLanguages}
-                        placeholder={'Langauges and skills here...'} />
+                    <Checkbox 
+                        setName = {'Languages'}
+                        type = {'checkbox'}
+                        controlFunc={this.handleProjectLanguagesChange}
+                        options={findProjectjson.Skills}
+                        selectedOptions={this.state.projectLanguages}
+                    />
                 <h2>Link to Project</h2>
                     <InputArea
                         inputType={'text'}
