@@ -1,7 +1,7 @@
 import "./submitProjectForm.css";
 import React, {Component} from "react";
 import InputArea from "../../components/inputArea/inputArea";
-import Checkbox from "../../components/checkbox/checkbox";
+import Checkbox from "../../components/Checkbox/Checkbox";
 import findProjectjson from "../../newProjectjson/findProject.json";
 
 class submitProjectForm extends Component {

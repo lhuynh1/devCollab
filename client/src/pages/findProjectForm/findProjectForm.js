@@ -1,6 +1,6 @@
 import "./findProjectForm.css";
 import React, {Component} from "react";
-import Checkbox from "../../components/checkbox/checkbox";
+import Checkbox from "../../components/Checkbox/Checkbox";
 import findProjectjson from "../../newProjectjson/findProject.json";
 import axios from "axios";
 /* import { set } from "mongoose"; */
