@@ -23,7 +23,7 @@ class Signup extends Component {
             invalidpassword: false
         });
 
-        const checkusername = /^[A-Za-z0-9_]{3,10}$/.test(this.state.username);
+        const checkusername = /^[A-Za-z0-9_]{6,20}$/.test(this.state.username);
         const checkpassword = /^[A-Za-z0-9!@#$%^&*_]{6,10}$/.test(this.state.password);
         console.log(checkusername);
         console.log(checkpassword);
@@ -55,7 +55,7 @@ class Signup extends Component {
                 <p className="err"> Sorry, this username is taken. </p> :null}
 
                 {(this.state.invalidusername) ? 
-                <p className="err">Username must be between 3-10 characters and no container any special characters</p> :null}
+                <p className="err">Username must be at least 6 characters.</p> :null}
 
                 {(this.state.invalidpassword) ? 
                 <p className="err">Password must be between 3-10 characters long.</p> :null}
