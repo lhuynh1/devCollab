@@ -16,16 +16,19 @@ class Navbar extends Component {
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav text-uppercase ml-auto">
               <li className="nav-item">
-                <a className="nav-link" href="#services">About</a>
+                <a className="nav-link" href="/submitproject">Submit a Project</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#team">Team</a>
+                <a className="nav-link" href="/findproject">Find a project</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/signup">Sign up</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/signin">Sign in</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/logout">Log out</a>
               </li>
             </ul>
           </div>

@@ -37,7 +37,7 @@ handleProjectLanguagesChange (e) {
     if(this.state.projectLanguages.indexOf(newSelection) > -1) {
         newSelectionArray = this.state.projectLanguages.filter(s => s !== newSelection)
     } else {
-        newSelectionArray = [...this.state.projectLanguages, newSelectionArray ]
+        newSelectionArray = [...this.state.projectLanguages, newSelection ]
     }
     this.setState ({ projectLanguages: newSelectionArray }, () => console.log('Project Languages', this.state.projectLanguages));
 }

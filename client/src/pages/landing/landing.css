@@ -1,0 +1,19 @@
+.jumbotron {
+    margin-top: 80pt;
+    border-top: 2px solid  #fed136;
+    border-bottom: 2px solid  #fed136;
+}
+
+.land-heading {
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 50px;
+    margin-bottom: 25px;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+
+.land-btn {
+    margin-left: 330pt;
+    width: 140pt;
+}
