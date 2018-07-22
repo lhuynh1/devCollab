@@ -74,6 +74,11 @@ apirouter.post("/signin", (req, res) => {
         });
 });
 
+apirouter.get('/logout', function(req,res) {
+    res.status(200).send({ auth: false, token: null });
+    res.send("logout success");
+});
+
 // verifying cookie upon login
 const verifyCookie = (req, res, next) => {
     jsonwebtoken.verify(token, 'good', (err, decoded) => {
