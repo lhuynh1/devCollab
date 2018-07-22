@@ -7,7 +7,6 @@ const projectFindSchema = new Schema ({
     selectedSkills: {type: Array, required: true}
 });
 
-
 const projectFind = mongoose.model("projectFind", projectFindSchema);
 
 module.exports = projectFind;

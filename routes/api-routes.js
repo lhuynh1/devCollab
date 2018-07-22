@@ -85,41 +85,31 @@ const verifyCookie = (req, res, next) => {
     });
 };
 
-
-
-// Submit project to mongo db
-// apirouter.post("/submitproject", (req, res) => {
-//     const {projectName, projectDescription, projectLanguages, projectLink} = req.body;
-//     console.log(req.body);
-//     projectName.save()
-//     projectDescription.save()
-//     projectLanguages.save()
-//     projectLink.save()
-//         .then(item => {
-//             res.send("Information saved to the database");
-//             console.log(res.send);
-//         })
-//         .catch(err => {
-//             res.status(400).send("Unable to save to the database");
-//             console.log(res.status);
-//         })
-// });
-
-
-// Submit desired project to mongo db
-apirouter.post("/findproject", (req, res) => {
-    const {selectedInterests, selectedSkills} = req.body;
-    db.FindProject.findOne
+apirouter.post("/submitproject", (req, res) => {
     console.log(req.body);
-    selectedInterests.save()
-    selectedSkills.save()
-        .then(item => {
-            res.send("Information successfully saved to the database")
+    const{projectName, projectDescription, projectLanguages, projectLink} = req.body;
+    // Mongoose code to submit into the mongodb database
+    db.projectSubmit.findOne({projectName})
+        .then((project) => {
+            console.log(project);
+            if(project) {
+                return res.status(409).json({error: "That project name already exists"});
+            }
+            const new_project = new db.projectSubmit({
+                projectName,
+                projectDescription,
+                projectLanguages,
+                projectLink
+            });
+            new_project.save((err, project) => {
+                console.log(project)
+                if(err) {
+                    console.log(err);
+                    return err;
+                }
+            })
         })
-        .catch(err => {
-            res.send("Unable to save to the database");
-        })
-});
+})
 
 apirouter.post
 module.exports = apirouter;
