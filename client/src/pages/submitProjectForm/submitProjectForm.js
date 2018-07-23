@@ -98,7 +98,8 @@ render() {
                         placeholder={'Project link here...'} />
                     <input
                         type="submit"
-                        className="btn btn-primary float-right"
+                        className="btn btn-primary"
+                        id="submitBtn"
                         value="Submit"/>
         </form>
     );

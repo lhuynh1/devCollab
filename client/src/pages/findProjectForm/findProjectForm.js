@@ -51,16 +51,17 @@ render() {
     return (
         <form className="container" id="findProject" onSubmit={this.handleFormSubmit}>
             <h3>Find a Project Form</h3>
+
+            <h2>Select your interest(s)</h2>
             <Checkbox
-                title = {'Select your interest(s)'}
                 setName = {'Interests'}
                 type = {'checkbox'}
                 controlFunc = {this.handleInterestsSelection}
                 options = {findProjectjson.Interests}
                 selectedOptions = {this.state.selectedInterests}
             />
+            <h2>Select your skills</h2>
             <Checkbox
-                title = {'Select your skills'}
                 setName = {'Skills'}
                 type = {'checkbox'}
                 controlFunc = {this.handleSkillsSelection}
@@ -70,6 +71,7 @@ render() {
             <input
                 type="submit"
                 className="btn btn-primary"
+                id="findBtn"
                 value="Submit"/>
         </form>
 

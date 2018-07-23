@@ -1,14 +1,29 @@
 #submitProject {
     border: 5px solid #bbbbbb;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
     margin: 0 auto;
     background-color: white;
     margin: auto;
+    margin-top: 80pt;
+    margin-bottom: 30pt;
+    padding: 30pt;
 }
 
 form .Checkbox {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.form-input {
+    width: 300pt;
+}
+
+.lang {
+    margin: 5pt;
+    flex-direction: row;
+}
+
+#submitBtn {
+    margin-top: 30pt;
 }
