@@ -31,8 +31,11 @@ handleFormSubmit = (e) => {
     // return the project information from the mongo database and display it on the results page
     // Use a for loop to loop through the projectLanguages array
     if (formPayLoad) {
-        axios.get('/')
-            .then(res => this.setState({returnedProjects: res.data}))
+        axios.get('/submitproject',{ headers: { 'crossDomain': true, 'Content-Type': 'application/json' } })
+            .then(res => this.setState({returnedProjects: res.data})
+        .then(findState => {
+            console.log(JSON.stringify(this.state.returnedProjects))
+        }))
     }
 }
 handleInterestsSelection = (e) => {
@@ -85,15 +88,16 @@ render() {
                     value="Submit"/>
             </form>
             <Card2>
+                
                 <h1>Projects Recommended For You</h1>
                 <h5>Project Name</h5>
-                    <p></p>
+                    <p>{this.state.returnedProjects.projectName}</p>
                 <h5>Project Description</h5>
                     <p></p>
                 <h5>Languages/Skills Needed for Project</h5>
                     <p></p>
                 <h5>Project Link</h5>
-                    {/* <Link></Link> */}
+                
             </Card2>
         </div>
     )
