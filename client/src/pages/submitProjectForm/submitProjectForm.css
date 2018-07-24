@@ -1,16 +1,17 @@
-#submitProject {
-    border: 5px solid #bbbbbb;
-    text-align: center;
+body {
+    align-content: center;
     margin: 0 auto;
-    background-color: white;
-    margin: auto;
-    margin-top: 80pt;
-    margin-bottom: 30pt;
-    padding: 25pt;
+    padding: 0;
 }
 
-h3 {
-    margin-bottom: 30pt;
+#submitProject {
+    border: 5px solid #212529e1;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #fed136;
+    margin-top: 100px;
+    color: black;
 }
 
 form .Checkbox {
@@ -19,15 +20,22 @@ form .Checkbox {
     justify-content: space-between;
 }
 
-.form-input {
-    width: 300pt;
-}
-
 .lang {
     margin: 5pt;
     flex-direction: row;
 }
 
-#submitBtn {
-    margin-top: 30pt;
+.form-input {
+    width: 300pt;
+}
+
+#projectName {
+    width: 500px;
+    text-align: center;
+}
+
+#submit {
+    border: 3px solid #fed136;
+    color: #fed136;
+    background-color: #212529e1
 }

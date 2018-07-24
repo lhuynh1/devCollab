@@ -3,10 +3,51 @@ import React, {Component} from "react";
 import Checkbox from "../../components/Checkbox/Checkbox";
 import findProjectjson from "../../newProjectjson/findProject.json";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import Card2 from "../../components/card2/card2.js"
 /* import { set } from "mongoose"; */
 
+class Card2 extends Component {
+    constructor(props) {
+        super(props)
+    }
+    render(){
+        return (
+    <div className="card2 card2-info">
+    <h1>Project Name</h1>
+        <p>DevCollab</p>
+    <h5>Project Description</h5>
+        <p>Final Project for Georgia Tech Coding BootCamp</p>
+    <h5>Languages and Skills Needed for This Project</h5>
+        <p>HTML, CSS, JavaScript, React.js, MongoDB</p>
+    <h5>Project Link</h5>
+        <a href = "https://github.com/lhuynh1/devCollab" id="projectLink">
+        <p>https://github.com/lhuynh1/devCollab</p>
+        </a>
+    </div>
+        )
+    }
+}
+
+class Card3 extends Component {
+    constructor(props) {
+        super(props)
+    }
+    render(){
+        return (
+    <div className="card3 card3-info">
+    <h1>Project Name</h1>
+        <p>SyneScribble</p>
+    <h5>Project Description</h5>
+        <p>The purpose of this project is utilizing Paper.js and Firebase to create a dynamically updated community gallery of in-browser drawings. Paper.js allows a user to draw on the canvas element in HTML as point values. The drawing canvas is converted to an image and the data for it + the creator's name are stored in the Firebase database. The ColorAPI pulls rgb values that allow the users to choose which color to use when drawing. When the "Submit" button is clicked, the user's drawing is appended into the Gallery div, the data is pushed into Firebase and it is posted into Twitter with the use of the Twitter API and Codebird.</p>
+    <h5>Languages and Skills Needed for This Project</h5>
+        <p>HTML, CSS, JavaScript, React Js, Firebase</p>
+    <h5>Project Link</h5>
+        <a href = "https://github.com/msdibble/synescribble" id="projectLink">
+        <p>https://github.com/msdibble/synescribble</p>
+        </a>
+    </div>
+        )
+    }
+}
 
 class findProjectForm extends Component {
     constructor(props) {
@@ -14,7 +55,9 @@ class findProjectForm extends Component {
         this.state= {
             selectedInterests: [],
             selectedSkills: [],
-            returnedProjects: []
+            returnedProjects: [],
+            showCard2: false,
+            showCard3: false
         };
     }
 
@@ -22,22 +65,31 @@ handleFormSubmit = (e) => {
     e.preventDefault();
     const formPayLoad = {
         selectedInterests: this.state.selectedInterests,
-        selectedSkills: this.state.selectedSkills
+        selectedSkills: this.state.selectedSkills,
+        returnedProjects: this.state.returnedProjects
     };
     console.log('Send this in a GET request', formPayLoad);
     // Axios.get method
-    // Route to the results page 
     // If a user selects at least three languages that are in a submitted project,
     // return the project information from the mongo database and display it on the results page
-    // Use a for loop to loop through the projectLanguages array
     if (formPayLoad) {
-        axios.get('/submitproject',{ headers: { 'crossDomain': true, 'Content-Type': 'application/json' } })
-            .then(res => this.setState({returnedProjects: res.data})
-        .then(findState => {
-            console.log(JSON.stringify(this.state.returnedProjects))
-        }))
+        axios.get('api/submitproject')
+            .then((res) => {
+                this.returnedProjects = res.data;
+                console.log(res.data)
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 }
+
+onClick = (e) => {
+    e.preventDefault();
+    this.setState({showCard2: !this.state.showCard2});
+    this.setState({showCard3: !this.state.showCard3});
+}
+
 handleInterestsSelection = (e) => {
     const newSelection = e.target.value;
     let newSelectionArray;
@@ -63,45 +115,42 @@ handleSkillsSelection = (e) => {
 
 render() {
     return (
-    <div>
-        <form className="container" id="findProject" onSubmit={this.handleFormSubmit}>
-            <h3>Find a Project</h3>
+        <div className="find-form">
+            <form className="container" id="findProject" action="/submit" onSubmit={this.handleFormSubmit}>
+                <h3>Find a Project Form</h3>
+                <h2>Select your interest(s)</h2>
+                <Checkbox
+                    setName = {'Interests'}
+                    type = {'checkbox'}
+                    controlFunc = {this.handleInterestsSelection}
+                    options = {findProjectjson.Interests}
+                    selectedOptions = {this.state.selectedInterests}
+                />
+                <h2>Select your skills</h2>
+                <Checkbox
+                    setName = {'Skills'}
+                    type = {'checkbox'}
+                    controlFunc = {this.handleSkillsSelection}
+                    options = {findProjectjson.Skills}
+                    selectedOptions = {this.state.selectedSkills}
+                />
+                <button
+                    onClick={this.onClick.bind(this)}
+                    id="submit"
+                    type="submit"
+                    className="btn btn-primary"
+                    value="Submit">Submit </button>
+            </form>
 
-            <h2>Select your interest(s)</h2>
-            <Checkbox
-                setName = {'Interests'}
-                type = {'checkbox'}
-                controlFunc = {this.handleInterestsSelection}
-                options = {findProjectjson.Interests}
-                selectedOptions = {this.state.selectedInterests}
-            />
-            <h2>Select your skills</h2>
-            <Checkbox
-                setName = {'Skills'}
-                type = {'checkbox'}
-                controlFunc = {this.handleSkillsSelection}
-                options = {findProjectjson.Skills}
-                selectedOptions = {this.state.selectedSkills}
-            />
-            <input
-                type="submit"
-                className="btn btn-primary"
-                id="findBtn"
-                value="Submit"/>
-        </form>
-        <Card2>
-                
-        <h1>Projects Recommended For You</h1>
-        <h5>Project Name</h5>
-            <p>{this.state.returnedProjects.projectName}</p>
-        <h5>Project Description</h5>
-            <p></p>
-        <h5>Languages/Skills Needed for Project</h5>
-            <p></p>
-        <h5>Project Link</h5>
-        
-    </Card2>
-</div>
+            <div>
+                <container id="resultsSection">
+                    <a onClick={this.onClick.bind(this)} href='#'></a>
+                    {this.state.showCard2 && <Card2 />}
+                    {this.state.showCard3 && <Card3 />}
+                </container>
+            </div>
+            
+        </div> 
     )
 }
 

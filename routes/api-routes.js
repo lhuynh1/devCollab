@@ -116,5 +116,27 @@ apirouter.post("/submitproject", (req, res) => {
         })
 })
 
+apirouter.get("/findproject", (req, res) =>{
+    console.log(req.body);
+    const{selectedInterests, selectedSkills} = req.body;
+    db.projectFind.findOne({selectedInterests, selectedSkills})
+        .then(returnedProject);
+            console.log(returnedProject);
+            if(returnedProject) {
+                return res.status(409).json({error});
+            }
+        const new_returnedProject = new db.projectFind({
+            selectedInterests,
+            selectedSkills
+        });
+        new_returnedProject.save((err, returnedProject) => {
+            console.log(returnedProject);
+            if(err) {
+                console.log(err);
+                return err;
+            }
+        })
+})
+
 apirouter.post
 module.exports = apirouter;
