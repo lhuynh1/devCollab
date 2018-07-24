@@ -29,6 +29,13 @@ else {
     mongoose.connect("mongodb://localhost:27017/devCollab", { useNewUrlParser: true });
 }
 
+app.post("/submitproject", function(req, res) {
+    mongoose.Promise.then(function(db){
+        db.collection("submittedprojects").insertOne(req.body);
+    });
+    res.send("Data received:" + JSON.stringify(req.body));
+})
+
 app.listen(PORT, function() {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
   });

@@ -1,7 +1,7 @@
 import React from "react";
 
 const inputArea = (props) => (
-    <div className>
+    <div className="anyRandomName">
         <textarea
             className="form-input"
             style={props.resize ? null : {resize: "none"}}

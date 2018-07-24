@@ -22,8 +22,4 @@ const Checkbox = (props) => (
     </div>
 );
 
-// Checkbox.propTypes = {
-    // title: React
-// }
-
 export default Checkbox;

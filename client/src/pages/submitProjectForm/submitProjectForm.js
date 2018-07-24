@@ -1,8 +1,9 @@
 import "./submitProjectForm.css";
 import React, {Component} from "react";
 import InputArea from "../../components/inputArea/inputArea";
-import Checkbox from "../../components/Checkbox/Checkbox";
+import Checkbox from "../../components/Checkbox/Checkbox.js";
 import findProjectjson from "../../newProjectjson/findProject.json";
+import axios from "axios";
 
 class submitProjectForm extends Component {
     constructor(props) {
@@ -13,45 +14,38 @@ class submitProjectForm extends Component {
             projectLanguages: [],
             projectLink: ''
         };
-        this.handleProjectNameChange = this.handleProjectNameChange.bind(this);
-        this.handleProjectDescriptionChange = this.handleProjectDescriptionChange.bind(this);
-        this.handleProjectLanguagesChange = this.handleProjectLanguagesChange.bind(this);
-        this.handleProjectLinkChange = this.handleProjectLinkChange.bind(this);
     }
 
-handleProjectNameChange(e) {
+handleProjectNameChange = (e) => {
     this.setState({ projectName: e.target.value }, () => console.log('project name', this.state.projectName));
 }
 
-handleProjectDescriptionChange(e) {
+handleProjectDescriptionChange = (e) => {
     this.setState({ projectDescription: e.target.value }, () => console.log('project description', this.state.projectDescription));
 }
 
-handleProjectLinkChange(e) {
+handleProjectLinkChange = (e) => {
     this.setState({ projectLink: e.target.value}, () => console.log('project link', this.state.projectLink));
 }
 
-handleProjectLanguagesChange (e) {
-    const newSelection = e.target.value
+handleProjectLanguagesChange = (e) => {
+    const newSelection = e.target.value;
+    console.log(newSelection);
     let newSelectionArray;
     if(this.state.projectLanguages.indexOf(newSelection) > -1) {
         newSelectionArray = this.state.projectLanguages.filter(s => s !== newSelection)
     } else {
+<<<<<<< HEAD
         newSelectionArray = [...this.state.projectLanguages, newSelection ]
+=======
+        newSelectionArray = [...this.state.projectLanguages, newSelection];
+>>>>>>> 071718
     }
     this.setState ({ projectLanguages: newSelectionArray }, () => console.log('Project Languages', this.state.projectLanguages));
 }
 
-handleClearForm(e) {
-    e.preventDefault();
-        this.setState({
-            selectedInterests: [],
-            selectedSkills: []
-        });
-    }
-
 // Handle form submission
-handleFormSubmit(e) {
+handleFormSubmit = (e) => {
     e.preventDefault();
     const formPayload = {
         projectName: this.state.projectName,
@@ -60,8 +54,14 @@ handleFormSubmit(e) {
         projectLink: this.state.projectLink
     }
     console.log('Send this in a POST request', formPayload);
-    this.handleClearForm();
-}
+    if(formPayload) {
+        axios.post('/api/submitproject', formPayload)
+            .then(res => {
+                console.log(res);
+            })
+        }
+    }
+
 
 render() {
     return (
@@ -85,15 +85,15 @@ render() {
                     <Checkbox 
                         setName = {'Languages'}
                         type = {'checkbox'}
-                        controlFunc={this.handleProjectLanguagesChange}
-                        options={findProjectjson.Skills}
-                        selectedOptions={this.state.projectLanguages}
+                        controlFunc = {this.handleProjectLanguagesChange}
+                        options = {findProjectjson.Skills}
+                        selectedOptions = {this.state.projectLanguages}
                     />
                 <h2>Link to Project</h2>
                     <InputArea
                         inputType={'text'}
                         name={'name'}
-                        controlFunc={this.handleProjectLink}
+                        controlFunc={this.handleProjectLinkChange}
                         content={this.projectLink}
                         placeholder={'Project link here...'} />
                     <input
@@ -105,5 +105,6 @@ render() {
     );
 }
 }
+
 
 export default submitProjectForm;
