@@ -65,7 +65,7 @@ render() {
     return (
     <div>
         <form className="container" id="findProject" onSubmit={this.handleFormSubmit}>
-            <h3>Find a Project Form</h3>
+            <h3>Find a Project</h3>
 
             <h2>Select your interest(s)</h2>
             <Checkbox

@@ -62,7 +62,7 @@ handleFormSubmit = (e) => {
 render() {
     return (
         <form className="container" id="submitProject" onSubmit={this.handleFormSubmit}>
-            <h3>Submit a Project Form</h3>
+            <h3>Submit a Project</h3>
                 <h2>Project Name</h2>
                     <InputArea
                         inputType={'text'}
