@@ -3,7 +3,6 @@ import React, {Component} from "react";
 import Checkbox from "../../components/Checkbox/Checkbox";
 import findProjectjson from "../../newProjectjson/findProject.json";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import Card2 from "../../components/card2/card2.js"
 /* import { set } from "mongoose"; */
 
@@ -22,17 +21,22 @@ handleFormSubmit = (e) => {
     e.preventDefault();
     const formPayLoad = {
         selectedInterests: this.state.selectedInterests,
-        selectedSkills: this.state.selectedSkills
+        selectedSkills: this.state.selectedSkills,
+        returnedProjects: this.state.returnedProjects
     };
     console.log('Send this in a GET request', formPayLoad);
     // Axios.get method
-    // Route to the results page 
     // If a user selects at least three languages that are in a submitted project,
     // return the project information from the mongo database and display it on the results page
-    // Use a for loop to loop through the projectLanguages array
     if (formPayLoad) {
-        axios.get('/')
-            .then(res => this.setState({returnedProjects: res.data}))
+        axios.get('api/submitproject')
+            .then((res) => {
+                this.returnedProjects = res.data;
+                console.log(res.data)
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 }
 handleInterestsSelection = (e) => {
@@ -84,17 +88,10 @@ render() {
                     className="btn btn-primary"
                     value="Submit"/>
             </form>
-            <Card2>
-                <h1>Projects Recommended For You</h1>
-                <h5>Project Name</h5>
-                    <p></p>
-                <h5>Project Description</h5>
-                    <p></p>
-                <h5>Languages/Skills Needed for Project</h5>
-                    <p></p>
-                <h5>Project Link</h5>
-                    {/* <Link></Link> */}
-            </Card2>
+
+            <Card2 
+
+            />
         </div>
     )
 }
