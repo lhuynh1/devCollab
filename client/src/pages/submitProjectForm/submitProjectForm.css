@@ -1,14 +1,32 @@
+body {
+    align-content: center;
+    margin: 0 auto;
+    padding: 0;
+}
+
 #submitProject {
-    border: 5px solid #bbbbbb;
+    border: 5px solid #212529e1;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
     margin: 0 auto;
-    background-color: white;
-    margin: auto;
+    background-color: #fed136;
+    margin-top: 100px;
+    color: black;
 }
 
 form .Checkbox {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+#projectName {
+    width: 500px;
+    text-align: center;
+}
+
+#submit {
+    border: 3px solid #fed136;
+    color: #fed136;
+    background-color: #212529e1
 }

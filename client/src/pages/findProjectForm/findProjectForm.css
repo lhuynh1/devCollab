@@ -4,15 +4,29 @@ body {
     padding: 0;
 }
 
+#find-form {
+    background-image: url('../../images/coding-background.jpg');
+}
 #findProject {
-    border: 5px solid #bbbbbb;
+    border: 5px solid #212529e1;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
     margin: 0 auto;
     background-color: white;
-    margin: auto;
+    margin-top: 100px;
+    width: 800px;
+    padding: 30px;
+    background-color: #fed136
 }
 
+title {
+    text-decoration: underline;
+}
+
+h2 {
+    text-decoration: underline;;
+    font-family: 'Times New Roman', Times, serif;
+}
 .form-label {
     font-size: auto;
 }
@@ -25,6 +39,17 @@ form .Checkbox {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+#submit {
+    border: 3px solid #fed136;
+    color: #fed136;
+    background-color: #212529e1
+}
+
+container {
+    text-align: center;
+    border: 5px solid #212529e1;
 }
 
 

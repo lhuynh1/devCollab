@@ -11,3 +11,19 @@
     margin-top: 130pt;
 }
 
+h5 {
+    text-decoration: underline;
+    text-align: center;
+}
+
+p {
+    color: white;
+    text-indent: 20px;
+    text-align: center;
+}
+
+#projectLink {
+    color: white;
+    align-content: center;
+}
+
