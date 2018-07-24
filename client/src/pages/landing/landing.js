@@ -16,12 +16,18 @@ class Landing extends Component {
                         
                     
                     </Typist>
-
+                <div className="mx-auto d-block" style={{margin:'0 auto'}}>
                     <Typist avgTypingDelay={80} startDelay={5000}>
-                    <Link to="/submitproject"><button className="btn btn-xl text-uppercase text-center land-btn">Submit a project</button></Link>
-                    <Link to="/findproject"><button className="btn btn-xl text-uppercase text-center land-btn2">Find a project</button></Link>
+                    <Link to="/submitproject"><button className="btn btn-xl text-uppercase text-center land-btn" >Submit a project</button></Link>
+                    <Link to="/findproject"><button className="btn btn-xl text-uppercase text-center land-btn2" >Find a project</button></Link>
                     </Typist>
                 </div>
+
+                   
+                        <img src={require('./dev.gif')} alt="dev1 gif" className="rounded mx-auto d-block" style={{margin:'0 auto'}} />
+                       
+                    
+            </div>
            
         )
     }

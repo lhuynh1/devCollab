@@ -111,7 +111,7 @@ class Homepage extends Component {
                 <div class="col-sm-4">
                     <div class="team-member">
                     <img class="mx-auto rounded-circle" src="" alt=""/>
-                    {/* <h4>Diana Pertersen</h4>
+                    {/* <h4>Sharmeen Panjwani</h4>
                     <p class="text-muted">Full stack developer</p> */}
                     {/* <ul class="list-inline social-buttons">
                         <li class="list-inline-item">

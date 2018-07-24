@@ -35,18 +35,14 @@ handleProjectLanguagesChange = (e) => {
     if(this.state.projectLanguages.indexOf(newSelection) > -1) {
         newSelectionArray = this.state.projectLanguages.filter(s => s !== newSelection)
     } else {
-<<<<<<< HEAD
-        newSelectionArray = [...this.state.projectLanguages, newSelection ]
-=======
         newSelectionArray = [...this.state.projectLanguages, newSelection];
->>>>>>> 071718
     }
     this.setState ({ projectLanguages: newSelectionArray }, () => console.log('Project Languages', this.state.projectLanguages));
 }
 
 // Handle form submission
 handleFormSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const formPayload = {
         projectName: this.state.projectName,
         projectDescription: this.state.projectDescription,
