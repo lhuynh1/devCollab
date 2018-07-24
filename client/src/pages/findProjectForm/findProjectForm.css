@@ -24,6 +24,10 @@ body {
     margin: 15pt;
 }
 
+h2 {
+    margin-top: 15pt;
+}
+
 form .Checkbox {
     display: flex;
     flex-direction: row;

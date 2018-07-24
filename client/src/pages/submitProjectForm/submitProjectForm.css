@@ -6,7 +6,11 @@
     margin: auto;
     margin-top: 80pt;
     margin-bottom: 30pt;
-    padding: 30pt;
+    padding: 25pt;
+}
+
+h3 {
+    margin-bottom: 30pt;
 }
 
 form .Checkbox {
